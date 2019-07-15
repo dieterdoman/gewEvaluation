@@ -1,27 +1,37 @@
 package part2;
 import com.google.common.collect.ImmutableList;
 
-public class Cv {
-    private PersonalDetails personalDetails;
-    private ImmutableList<WorkItem> workHistory;
-    private ImmutableList<Qualification> qualifications;
+import java.util.List;
 
-    public Cv(PersonalDetails personalDetails, ImmutableList<WorkItem> workHistory, ImmutableList<Qualification> qualifications)
+public final class Cv {
+    private final PersonalDetails personalDetails;
+    private final ImmutableList<WorkItem> workHistory;
+    private final ImmutableList<Qualification> qualifications;
+
+    public Cv(PersonalDetails personalDetails, List<WorkItem> workHistory, List<Qualification> qualifications)
     {
-        this.personalDetails = personalDetails;
-        this.workHistory = workHistory;
-        this.qualifications = qualifications;
+        this.personalDetails = new PersonalDetails(personalDetails.getName(), personalDetails.getSurname());
+        this.workHistory = ImmutableList.<WorkItem>builder()
+                .addAll(workHistory)
+                .build();
+        this.qualifications = ImmutableList.<Qualification>builder()
+                .addAll(qualifications)
+                .build();
     }
 
     public PersonalDetails getPersonalDetails() {
-        return personalDetails;
+        return new PersonalDetails(personalDetails.getName(), personalDetails.getSurname());
     }
 
-    public ImmutableList<WorkItem> getWorkHistory() {
-        return workHistory;
+    public List<WorkItem> getWorkHistory() {
+        return ImmutableList.<WorkItem>builder()
+                .addAll(workHistory)
+                .build();
     }
 
-    public ImmutableList<Qualification> getQualifications() {
-        return qualifications;
+    public List<Qualification> getQualifications() {
+        return ImmutableList.<Qualification>builder()
+                .addAll(qualifications)
+                .build();
     }
 }
