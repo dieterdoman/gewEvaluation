@@ -9,7 +9,9 @@ public class CsvButton extends JButton
     public CsvButton()
     {
         super("CSV button");
-        this.addActionListener(e -> tableDisplay.loadTableData());
+        this.addActionListener(e -> {
+            tableDisplay.loadTableData();
+        });
     }
 
     public TableDisplay getTableDisplay()
