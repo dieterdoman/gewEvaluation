@@ -1,4 +1,4 @@
-package part2;
+package task2;
 
 public class PersonalDetails {
     private String name;

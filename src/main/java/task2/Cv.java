@@ -1,4 +1,4 @@
-package part2;
+package task2;
 import com.google.common.collect.ImmutableList;
 
 import java.util.List;
