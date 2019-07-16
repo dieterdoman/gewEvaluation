@@ -17,6 +17,14 @@
                     <target>8</target>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.openjfx</groupId>
+                <artifactId>javafx-maven-plugin</artifactId>
+                <version>0.0.2</version>
+                <configuration>
+                    <mainClass>task1/task1</mainClass>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
     <dependencies>
@@ -32,6 +40,4 @@
             <version>11.0.2</version>
         </dependency>
     </dependencies>
-
-
 </project>
