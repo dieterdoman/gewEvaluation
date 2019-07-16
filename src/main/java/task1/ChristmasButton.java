@@ -14,7 +14,7 @@ public class ChristmasButton extends JButton {
     public ChristmasButton()
     {
         super("Days until Christmas");
-        christmasLabel = new JLabel();
+        christmasLabel = new JLabel("??");
         this.addActionListener(e -> {
             try {
                 christmasLabel.setText(Long.toString(daysUntilChristmas()));

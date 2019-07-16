@@ -1,34 +1,35 @@
 package task1;
 
 import javax.swing.table.AbstractTableModel;
-import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 public class TableModel extends AbstractTableModel {
-    private final String[] columnNames = { "1", "2", "3", "4", "5", "6", "7", "8" };
-    private ArrayList<String[]> Data = new ArrayList<String[]>();
+    private List<List<String>> data;
 
-    public void AddCSVData(ArrayList<String[]> DataIn) {
-        this.Data = DataIn;
+    public TableModel(List<List<String>> data)
+    {
+        this.data = data;
         this.fireTableDataChanged();
     }
 
     @Override
     public int getColumnCount() {
-        return columnNames.length;// length;
+        return Optional.of(data.get(0).size()).orElse(0);
     }
 
     @Override
     public int getRowCount() {
-        return Data.size();
+        return data.size();
     }
 
     @Override
     public String getColumnName(int col) {
-        return columnNames[col];
+        return Integer.toString(col);
     }
 
     @Override
     public Object getValueAt(int row, int col) {
-        return Data.get(row)[col];
+        return data.get(row).get(col);
     }
 }
