@@ -1,22 +1,17 @@
 package task2;
-import com.google.common.collect.ImmutableList;
-
+import java.util.ArrayList;
 import java.util.List;
 
 public final class Cv {
     private final PersonalDetails personalDetails;
-    private final ImmutableList<WorkItem> workHistory;
-    private final ImmutableList<Qualification> qualifications;
+    private final List<WorkItem> workHistory;
+    private final List<Qualification> qualifications;
 
     public Cv(PersonalDetails personalDetails, List<WorkItem> workHistory, List<Qualification> qualifications)
     {
         this.personalDetails = new PersonalDetails(personalDetails.getName(), personalDetails.getSurname());
-        this.workHistory = ImmutableList.<WorkItem>builder()
-                .addAll(workHistory)
-                .build();
-        this.qualifications = ImmutableList.<Qualification>builder()
-                .addAll(qualifications)
-                .build();
+        this.workHistory = new ArrayList<>(workHistory);
+        this.qualifications = new ArrayList<>(qualifications);
     }
 
     public PersonalDetails getPersonalDetails() {
@@ -24,14 +19,10 @@ public final class Cv {
     }
 
     public List<WorkItem> getWorkHistory() {
-        return ImmutableList.<WorkItem>builder()
-                .addAll(workHistory)
-                .build();
+        return new ArrayList<>(workHistory);
     }
 
     public List<Qualification> getQualifications() {
-        return ImmutableList.<Qualification>builder()
-                .addAll(qualifications)
-                .build();
+        return new ArrayList<>(qualifications);
     }
 }
